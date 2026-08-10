@@ -11,7 +11,9 @@ This repo documents the robotics hardware topology and the setup workflow.
 
 ## 3. Documentation Rules
 - `README.md`: high-level overview and launch context.
-- `docs/HOST_WORKSTATION.md`, `docs/CLOUD_SIMULATION_NODE.md`, `docs/JETSON_EDGE_NODE.md`: operational instructions.
+- `SPEC.md`, `VERIFICATION_PLAN.md`: scope, public boundary, and verification.
+- `HOST_WORKSTATION.md`, `CLOUD_SIMULATION_NODE.md`, `JETSON_EDGE_NODE.md`,
+  `ROS2_NETWORKING.md` (in this `docs/` directory): per-node setup patterns.
 
 ## 4. Quality Bar
 - No hardware claim without a setup path.

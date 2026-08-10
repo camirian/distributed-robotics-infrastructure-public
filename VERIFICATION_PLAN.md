@@ -2,9 +2,11 @@
 
 ## Checks
 
-The author runs an external, personal public-export gate (a secret/PII scanner that
-is not shipped in this repository) before publishing changes. For a stranger reading
-this repo, the manual boundary review below is the authoritative check.
+Run the public-export gate before publishing changes:
+
+```bash
+python3 repo_preflight.py --repo . --profile public-export --paranoid
+```
 
 Manual review:
 
@@ -14,5 +16,5 @@ Manual review:
 
 ## Release Decision
 
-Release only when the export gate (run by the author) and the manual boundary review pass.
+Release only when automated checks and manual boundary review pass.
 
