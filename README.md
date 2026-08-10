@@ -11,6 +11,8 @@ NVIDIA Jetson Orin edge device. There is nothing to install or execute from this
 each document describes the pattern and the verification steps for one node or layer.
 
 For repo-specific working rules, read [docs/OPERATING_STANDARD.md](docs/OPERATING_STANDARD.md).
+For definitions of key terms, see the
+[AI & Robotics Glossary](https://github.com/camirian/robotics-ontology-public/blob/main/GLOSSARY.md).
 
 ## 🗺️ Topology Overview
 
