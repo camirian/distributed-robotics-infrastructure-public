@@ -1,17 +1,11 @@
-# Contributing: Distributed Robotics Infrastructure
+# Contributing: Distributed Sim-to-Real Infrastructure
 
-This public repository contains a documentation-only infrastructure pattern. Keep
-changes reproducible, simulation-safe, and free of private topology details.
+As the foundational infrastructure layer, stability and determinism are paramount.
 
-## Infrastructure-as-Code Principles
-1. Prefer scriptable and reproducible setup steps over manual configuration.
-2. Keep network examples generic. Do not publish real hostnames, IP ranges,
-   tailnet details, cloud project identifiers, credentials, or access paths.
-3. Document verification assumptions when changing cloud, edge-node, or DDS
-   routing examples.
+## 🏗️ Infrastructure-as-Code (IaC) Principles
+1.  **Immutable Nodes:** Avoid manual configuration ("click-ops") where possible. When updating the `docs/CLOUD_SIMULATION_NODE.md` or `docs/JETSON_EDGE_NODE.md`, ensure the steps are scriptable and reproducible.
+2.  **Network Topologies:** Any changes to the Tailscale mesh or DDS routing paradigms must be thoroughly verified against multicast/unicast constraints common in cloud VPCs (Google Cloud Platform).
 
-## Proposing Changes
-1. For significant architectural changes, open an issue first and describe the
-   tradeoff being evaluated.
-2. For documentation updates, submit a pull request linking to the relevant
-   issue when one exists.
+## 📝 Proposing Changes
+1.  If proposing a significant architectural shift (e.g., migrating from VPN-based DDS bridging to Zenoh), open an Issue first to discuss the performance implications.
+2.  For documentation updates, submit a Pull Request linking to the relevant Issue.
