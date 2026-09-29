@@ -1,14 +1,16 @@
 # Distributed Robotics Infrastructure
 
-> *This repository documents the multi-node hardware topology — mesh VPN networking
-> (e.g. Tailscale), a host control-plane workstation, a cloud GPU simulation node, and
-> a Jetson physical edge node — used to run autonomous sim-to-real robotics pipelines.*
+> *This repository describes a proposed multi-node robotics topology: a host
+> workstation, a cloud GPU simulation node, a Jetson edge node, and a private
+> network overlay. It does not establish that these nodes are provisioned,
+> connected, or running an autonomous sim-to-real pipeline.*
 
-This is an **architecture and reference writeup**, not a runnable system. It captures
-reusable, public-safe setup patterns for a distributed sim-to-real pipeline: an
-Ubuntu / ROS 2 host workstation, a GPU-accelerated cloud simulation node (GCP), and an
-NVIDIA Jetson Orin edge device. There is nothing to install or execute from this repo;
-each document describes the pattern and the verification steps for one node or layer.
+This is an **architecture and setup reference**, not a runnable system or a
+verified end-to-end deployment. It describes example patterns for an Ubuntu /
+ROS 2 host workstation, a GPU-accelerated cloud simulation node (GCP), and an
+NVIDIA Jetson Orin edge device. There is nothing to install or execute from
+this repo. The documents include suggested setup and verification steps; they
+do not report that those steps were run or that the nodes communicate.
 
 For repo-specific working rules, read [docs/OPERATING_STANDARD.md](docs/OPERATING_STANDARD.md).
 For definitions of key terms, see the
@@ -18,14 +20,14 @@ For definitions of key terms, see the
 
 | Tier      | Node                          | Role                                                                 |
 | --------- | ----------------------------- | ------------------------------------------------------------------- |
-| **Host**  | Ubuntu / ROS 2 workstation    | Primary development node: source control, build tooling, local sim. |
-| **Cloud** | GPU VM on GCP                 | Burst GPU capacity for physics simulation and synthetic data.       |
-| **Edge**  | NVIDIA Jetson Orin            | Runs robotics workloads close to sensors, actuators, and rigs.      |
-| **Mesh**  | Private network / VPN overlay | Connects all nodes so ROS 2 discovery and topics work across tiers. |
+| **Host**  | Ubuntu / ROS 2 workstation    | Intended role: source control, build tooling, and local simulation. |
+| **Cloud** | GPU VM on GCP                 | Proposed burst capacity for physics simulation and synthetic data. |
+| **Edge**  | NVIDIA Jetson Orin            | Intended for workloads close to sensors, actuators, and rigs.      |
+| **Mesh**  | Private network / VPN overlay | Proposed path for cross-tier ROS 2 discovery; connectivity is not verified here. |
 
 ## 📚 Documentation
 
-Each document is a self-contained setup pattern with a verification section:
+Each document describes a setup pattern and includes suggested checks:
 
 -   [`QUICKSTART.md`](QUICKSTART.md): How the pieces fit together and where to start.
 -   [`docs/HOST_WORKSTATION.md`](docs/HOST_WORKSTATION.md): Host workstation baseline and setup pattern.
@@ -36,7 +38,10 @@ Each document is a self-contained setup pattern with a verification section:
 
 ---
 
-## 🛠️ Software Stack & Key Tools
+## 🛠️ Illustrative Software Stack & Key Tools
+
+These versions and roles are examples from the reference material, not a
+verified inventory of a provisioned environment.
 
 | Component           | Version / Type                   | Purpose                                        |
 | ------------------- | -------------------------------- | ---------------------------------------------- |
@@ -51,20 +56,20 @@ Each document is a self-contained setup pattern with a verification section:
 
 ---
 
-## 📝 Skills Demonstrated
+## 📝 Topics Covered by the Documentation
 
-The documented setup workflow reflects core competencies in:
+The reference material discusses these areas. The list describes document
+topics; it does not claim that the listed installations or deployments were
+performed or independently verified:
 
--   **Systems Administration:** Installing and configuring a Linux (Ubuntu 22.04)
-    environment from scratch, including disk partitioning for dual-boot systems.
--   **Hardware & Driver Management:** Installing and verifying proprietary NVIDIA
-    drivers on Linux, including dependency handling and Secure Boot (MOK) enrollment.
--   **Distributed Systems & Networking:** Establishing and verifying a multi-machine
-    ROS 2 network, demonstrating an understanding of the DDS discovery mechanism.
--   **Embedded & Edge AI Systems:** Flashing and configuring an embedded device
-    (NVIDIA Jetson) with the JetPack SDK for sim-to-real deployment.
--   **Version Control & Technical Documentation:** Using Git and GitHub to maintain
-    structured documentation for a technical project.
+-   **Systems administration:** Ubuntu workstation setup patterns, including
+    dual-boot considerations.
+-   **Hardware and drivers:** NVIDIA driver installation and Secure Boot
+    enrollment notes.
+-   **Distributed systems and networking:** Multi-machine ROS 2 and DDS
+    discovery patterns.
+-   **Embedded and edge AI:** Jetson Orin and JetPack setup notes.
+-   **Version control and documentation:** GitHub-hosted reference material.
 
 ---
 
