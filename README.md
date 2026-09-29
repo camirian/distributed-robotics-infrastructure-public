@@ -38,7 +38,10 @@ Each document describes a setup pattern and includes suggested checks:
 
 ---
 
-## 🛠️ Software Stack & Key Tools
+## 🛠️ Illustrative Software Stack & Key Tools
+
+These versions and roles are examples from the reference material, not a
+verified inventory of a provisioned environment.
 
 | Component           | Version / Type                   | Purpose                                        |
 | ------------------- | -------------------------------- | ---------------------------------------------- |
